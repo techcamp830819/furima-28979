@@ -80,9 +80,9 @@ Things you may want to cover:
 | Column           | Type        | Options                     |
 | ---------------- | ----------- |-----------------------------|
 | post_code        | string      | null:false                  |
-| prefecture_id    | string      | null:false,foreign_key:true |
-| city             | string      | null:false                 |
-| block_number     | string      | null:false
+| prefecture_id    | integer     | null:false                  |
+| city             | string      | null:false                  |
+| block_number     | string      | null:false                  |
 | building_name    | string      |                             |
 | phone_number     | string      | null: false                 |
 | purchase         | references  | null:false,foreign_key:true |
