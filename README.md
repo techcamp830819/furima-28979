@@ -40,27 +40,28 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :purchases
-- has_many :items
+- has_many :purchase
+- has_many :item
 
 ## items テーブル
 
 | Column           | Type   | Options                     |
 | ---------------- | ------ | ----------------------------|
-| nickname         | string | null:false,foreign_key:true |
-| email            | string | null: false                 |
-| password         | text   | null: false                 |
-| last_name        | integer| null: false                 |
-| first_name       | integer| null: false                 |
-| last_name_kana   | integer| null: false                 |
-| first_name_kana  | integer| null: false                 |
-| birth_date       | integer| null: false                 |
+| user             | string | null:false,foreign_key:true |
+| name             | string | null: false                 |
+| description      | text   | null: false                 |
+| images_id        | integer| null: false                 |
+| category_id      | integer| null: false                 |
+| condition_id     | integer| null: false                 |
+| delivery_fee     | integer| null: false                 |
+| prefecture_id    | integer| null: false                 |
+| handringtime_id  | integer| null: false                 |
+| price            | integer| null: false                 |
 
 ### Association
 
-- belong_to :users
-- has_one :purchases
-- has_many :item_images
+- belong_to :user
+- has_one :purchase
 
 ## purchases テーブル
 
@@ -71,20 +72,9 @@ Things you may want to cover:
 
 ### Association
 
-- belong_to :users
-- belong_to :items
-- has_one :addresses
-
-## item_image テーブル
-
-| Column           | Type       | Options                     |
-| ---------------- | -----------| ----------------------------|
-| image            | string     | null:false                  |
-| item             | referenses | null:false,foreign_key:true |
-
-### Association
-
-- belong_to :items
+- belong_to :user
+- belong_to :item
+- has_one :addresse
 
 ## addresses テーブル
 
@@ -92,11 +82,12 @@ Things you may want to cover:
 | ---------------- | ----------- |-----------------------------|
 | post_code        | integer     | null:false                  |
 | prefecture_id    | string      | null:false,foreign_key:true |
-| city    | text   | string      | null: false                 |
+| city             | string      | null:false                 |
+| block_number     | string      | null:false
 | building_name    | string      |                             |
 | phone_number     | string      | null: false                 |
 | purchase_item    | referenses  | null:false,foreign_key:true |
 
 ### Association
 
-- belong_to :purchases
+- belong_to :purchase
