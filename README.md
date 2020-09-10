@@ -36,27 +36,26 @@ Things you may want to cover:
 | first_name       | string | null: false |
 | last_name_kana   | string | null: false |
 | first_name_kana  | string | null: false |
-| birth_date       | string | null: false |
+| birth_date       | date   | null: false |
 
 ### Association
 
-- has_many :purchase
-- has_many :item
+- has_many :purchases
+- has_many :items
 
 ## items テーブル
 
-| Column           | Type   | Options                     |
-| ---------------- | ------ | ----------------------------|
-| user             | string | null:false,foreign_key:true |
-| name             | string | null: false                 |
-| description      | text   | null: false                 |
-| images_id        | integer| null: false                 |
-| category_id      | integer| null: false                 |
-| condition_id     | integer| null: false                 |
-| delivery_fee     | integer| null: false                 |
-| prefecture_id    | integer| null: false                 |
-| handringtime_id  | integer| null: false                 |
-| price            | integer| null: false                 |
+| Column           | Type       | Options                     |
+| ---------------- | ---------- | ----------------------------|
+| user             | references | null:false,foreign_key:true |
+| name             | string     | null: false                 |
+| description      | text       | null: false                 |
+| category_id      | integer    | null: false                 |
+| condition_id     | integer    | null: false                 |
+| delivery_fee     | integer    | null: false                 |
+| prefecture_id    | integer    | null: false                 |
+| handringtime_id  | integer    | null: false                 |
+| price            | integer    | null: false                 |
 
 ### Association
 
@@ -67,26 +66,26 @@ Things you may want to cover:
 
 | Column           | Type       | Options                     |
 | ---------------- | -----------| ----------------------------|
-| item             | referenses | null:false,foreign_key:true |
-| user             | referenses | null:false,foreign_key:true |
+| item             | references | null:false,foreign_key:true |
+| user             | references | null:false,foreign_key:true |
 
 ### Association
 
 - belong_to :user
 - belong_to :item
-- has_one :addresse
+- has_one :address
 
 ## addresses テーブル
 
 | Column           | Type        | Options                     |
 | ---------------- | ----------- |-----------------------------|
-| post_code        | integer     | null:false                  |
+| post_code        | string      | null:false                  |
 | prefecture_id    | string      | null:false,foreign_key:true |
 | city             | string      | null:false                 |
 | block_number     | string      | null:false
 | building_name    | string      |                             |
 | phone_number     | string      | null: false                 |
-| purchase_item    | referenses  | null:false,foreign_key:true |
+| purchase         | references  | null:false,foreign_key:true |
 
 ### Association
 
