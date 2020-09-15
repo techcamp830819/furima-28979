@@ -48,7 +48,7 @@ RSpec.describe User, type: :model do
       end
 
       it 'メールアドレスは@を含む必要があること' do
-        @user.email = 'aaa.com'
+        @user.email = 'aaaa.com'
         @user.valid?
         expect(@user.errors.full_messages).to include('Email is invalid')
       end
@@ -57,18 +57,6 @@ RSpec.describe User, type: :model do
         @user.password = nil
         @user.valid?
         expect(@user.errors.full_messages).to include("Password can't be blank")
-      end
-
-      it 'ユーザー本名が、名字と名前がそれぞれ必須であること' do
-        @user.last_name = nil
-        @user.valid?
-        expect(@user.errors.full_messages).to include("Last name 全角（漢字・ひらがな・カタカナ）を入力")
-      end
-
-      it 'ユーザー本名が、名字と名前がそれぞれ必須であること' do
-        @user.first_name = nil
-        @user.valid?
-        expect(@user.errors.full_messages).to include("First name 全角（漢字・ひらがな・カタカナ）を入力")
       end
 
       it 'ユーザー本名が、名字と名前がそれぞれ必須であること' do
@@ -93,18 +81,6 @@ RSpec.describe User, type: :model do
         @user.first_name_kana = nil
         @user.valid?
         expect(@user.errors.full_messages).to include("First name kana 全角（カタカナ）を入力")
-      end
-
-      it 'ユーザー本名のフリガナが、名字と名前でそれぞれ必須であること' do
-        @user.last_name_kana = nil
-        @user.valid?
-        expect(@user.errors.full_messages).to include("Last name kana 全角（カタカナ）を入力", "Last name kana 全角（漢字・ひらがな）半角英数字入力NG")
-      end
-
-      it 'ユーザー本名のフリガナが、名字と名前でそれぞれ必須であること' do
-        @user.first_name_kana = nil
-        @user.valid?
-        expect(@user.errors.full_messages).to include("First name kana 全角（カタカナ）を入力", "First name kana 全角（漢字・ひらがな）半角英数字入力NG")
       end
 
       it '生年月日が必須であること' do
