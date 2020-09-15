@@ -7,11 +7,10 @@ class User < ApplicationRecord
   validates :nickname,           presence: true
   validates :email,              presence: true
   validates :password,           presence: true
-  validates :password,           format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i,message: "半角英数字を入力" }
+  validates :password,           format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: '半角英数字を入力' }
   validates :last_name,          presence: true
   validates :first_name,         presence: true
   validates :last_name_kana,     presence: true
   validates :first_name_kana,    presence: true
   validates :birth_date,         presence: true
-
 end
