@@ -8,6 +8,10 @@ RSpec.describe User, type: :model do
 
     describe 'ユーザー新規登録' do
       context '新規登録がうまくいくとき' do
+        it '全ての値が存在すれば登録できる' do
+          expect(@user).to be_valid
+        end
+
         it 'パスワードは6文字以上であること' do
           @user.password = 'aaa1111'
           @user.password_confirmation = 'aaa1111'
@@ -57,25 +61,25 @@ RSpec.describe User, type: :model do
       it 'ユーザー本名が、名字と名前がそれぞれ必須であること' do
         @user.last_name = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name can't be blank")
+        expect(@user.errors.full_messages).to include("Last name 全角（漢字・ひらがな・カタカナ）を入力")
       end
 
       it 'ユーザー本名が、名字と名前がそれぞれ必須であること' do
         @user.first_name = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name can't be blank")
+        expect(@user.errors.full_messages).to include("First name 全角（漢字・ひらがな・カタカナ）を入力")
       end
 
       it 'ユーザー本名のフリガナが、名字と名前でそれぞれ必須であること' do
         @user.last_name_kana = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name kana can't be blank")
+        expect(@user.errors.full_messages).to include("Last name kana 全角（カタカナ）を入力")
       end
 
       it 'ユーザー本名のフリガナが、名字と名前でそれぞれ必須であること' do
         @user.first_name_kana = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name kana can't be blank")
+        expect(@user.errors.full_messages).to include("First name kana 全角（カタカナ）を入力")
       end
 
       it '生年月日が必須であること' do
