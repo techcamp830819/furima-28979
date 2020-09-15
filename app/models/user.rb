@@ -10,6 +10,10 @@ class User < ApplicationRecord
   validates :email
   validates :password
   validates :birth_date
+  validates :last_name
+  validates :first_name
+  validates :last_name_kana
+  validates :first_name_kana
   end
   with_options format: { with: /\A[ぁ-んァ-ン一-龥]/, message: '全角（漢字・ひらがな・カタカナ）を入力' } do
   validates :last_name
