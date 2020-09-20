@@ -1,12 +1,12 @@
 FactoryBot.define do
   factory :item do
-    name { 'なまえ' }
-    description { 'せつめい' }
-    category_id { 1 }
-    condition_id { 1 }
-    delivery_fee_id { 1 }
-    prefecture_id { 1 }
-    handringtime_id { 1 }
+    name { '商品' }
+    description { '商品説明' }
+    category_id { 2 }
+    condition_id { 2 }
+    delivery_fee_id { 2 }
+    prefecture_id { 2 }
+    handringtime_id { 2 }
     price { 1000 }
   end
 end
