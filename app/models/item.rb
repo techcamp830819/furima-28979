@@ -21,4 +21,6 @@ class Item < ApplicationRecord
     validates :prefecture_id
     validates :handringtime_id
   end
+    belongs_to :user
+#     has_one :purchase
 end
