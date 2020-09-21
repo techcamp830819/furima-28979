@@ -66,43 +66,43 @@ RSpec.describe Item, type: :model do
       it '商品状態が--を示すid値だと出品登録できない' do
         @item.condition_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition must be other than 1")
+        expect(@item.errors.full_messages).to include('Condition must be other than 1')
       end
 
       it '配送料負担が--を示すid値だと出品登録できない' do
         @item.delivery_fee_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery fee must be other than 1")
+        expect(@item.errors.full_messages).to include('Delivery fee must be other than 1')
       end
 
       it '発送元地域が--を示すid値だと出品登録できない' do
         @item.prefecture_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
+        expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
       end
 
       it '発足までの日数が--を示すid値だと出品登録できない' do
         @item.handringtime_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Handringtime must be other than 1")
+        expect(@item.errors.full_messages).to include('Handringtime must be other than 1')
       end
 
       it 'カテゴリーが--を示すid値だと出品登録できない' do
         @item.category_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
 
       it '価格が299以下だと出品登録できない' do
         @item.price = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not included in the list")
+        expect(@item.errors.full_messages).to include('Price is not included in the list')
       end
 
       it '価格が10,000,000以上だと出品登録できない' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not included in the list")
+        expect(@item.errors.full_messages).to include('Price is not included in the list')
       end
     end
   end

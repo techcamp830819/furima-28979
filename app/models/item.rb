@@ -20,5 +20,5 @@ class Item < ApplicationRecord
     validates :delivery_fee_id
     validates :prefecture_id
     validates :handringtime_id
-    end
   end
+end
