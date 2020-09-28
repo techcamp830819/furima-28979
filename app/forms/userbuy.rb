@@ -6,7 +6,7 @@ class Userbuy
   validates :prefecture_id, presence: true, numericality: { other_than: 1 }
   validates :city, presence: true
   validates :block_number, presence: true
-  validates :phone_number, numericality: { other_than: 1, message: "can't be blank" }
+  validates :phone_number, presence: true, length: { maximum: 11 } 
   validates :token, presence: true
 
   def save

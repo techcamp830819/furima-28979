@@ -76,6 +76,12 @@ RSpec.describe Userbuy, type: :model do
         @userbuy.valid?
         expect(@userbuy.errors.full_messages).to include("Phone number can't be blank")
       end
+
+      it '電話番号が12桁以上の場合は購入できないこと' do
+        @userbuy.phone_number = '111111111111'
+        @userbuy.valid?
+        expect(@userbuy.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+      end
     end
   end
 end
